@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="日本地図、クリッカブルマップ、スマホ対応">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="css/map-japan.css?20180707">
+<style>
+body {
+	margin: 15px 10px;
+}
+table#clickable_map {
+	margin: 0 auto;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+$(function(){
+	wh_change();
+});
+$(window).resize(function(){
+	wh_change();
+
+});
+function wh_change() {
+	sW = window.innerWidth;
+	sH = window.innerHeight;
+	if (sW > sH) {						// 横長
+		if (sH < 400) {					// 縦が400pxより小さい
+			$('#clickable_map br').css('display', 'none');
+			$('#clickable_map a').css('line-height', '17px');
+			$('#clickable_map a').css('padding', '1px 0');
+			$('#hokkaido').css('height', '26px');
+			$('#hokkaido').css('line-height', '17px');
+			$('.char3 a').css('line-height', '17px');
+			$('.char3 a').css('font-size', '14px');
+			$('.rowspan_2 a').css('line-height', '36px');
+			$('#clickable_map td').not('#dummy').css('height', '20px');		// .not(セレクタ) 除外
+		} else if (sH < 600) {					// 縦が600pxより小さい
+			$('#clickable_map br').css('display', 'none');
+			$('#clickable_map a').css('line-height', '30px');
+			$('#clickable_map a').css('padding', '1px 0');
+			$('#hokkaido').css('height', '49px');
+			$('#hokkaido').css('line-height', '30px');
+			$('.char3 a').css('line-height', '30px');
+			$('.char3 a').css('font-size', '14px');
+			$('.rowspan_2 a').css('line-height', '60px');
+			$('#clickable_map td').not('#dummy').css('height', '24px');
+		} else {
+			$('#clickable_map br').css('display', 'none');
+			$('#clickable_map a').css('line-height', '49px');
+			$('#clickable_map a').css('padding', '1px 0');
+			$('#hokkaido').css('height', '49px');
+			$('#hokkaido').css('line-height', '49px');
+			$('.char3 a').css('line-height', '49px');
+			$('.char3 a').css('font-size', '14px');
+			$('.rowspan_2 a').css('line-height', '99px');
+			$('#clickable_map td').not('#dummy').css('height', '24px');
+		}
+	} else {						// 縦長 (スマホ)
+		$('#clickable_map br').css('display', '');
+		$('#clickable_map a').css('line-height', '14px');
+		$('#clickable_map a').css('padding', '5px 0');
+		$('#hokkaido').css('height', '49px');
+		$('#hokkaido').css('line-height', '14px');
+		$('.char3 a').css('line-height', '12px');
+		$('.char3 a').css('font-size', '12px');
+		$('.rowspan_2 a').css('line-height', '30px');
+		$('#clickable_map td').not('#dummy').css('height', '24px');
+	}
+}
+</script>
+<title>日本地図：クリッカブルマップ</title>
+</head>
+<body>
+<table id="clickable_map" cellspacing="1">
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td colspan=2 id="hokkaido" class="char3"><a href="sub.html?ken=01" class="hokkaido">北<br>海<br>道</a></td>
+</tr>
+<tr>
+	<td id="dummy" colspan=13 style="height:2px; line-height:2px;"></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td colspan=2 class="colspan_2"><a href="sub.html?ken=02" class="touhoku">青<br>森</a></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><a href="sub.html?ken=04" class="touhoku">秋<br>田</a></td>
+	<td><a href="sub.html?ken=03" class="touhoku">岩<br>手</a></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td rowspan=2 class="rowspan_2"><a href="sub.html?ken=23" class="chubu">石<br>川</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><a href="sub.html?ken=05" class="touhoku">山<br>形</a></td>
+	<td><a href="sub.html?ken=06" class="touhoku">宮<br>城</a></td>
+</tr>
+<tr>
+	<td><a href="sub.html?ken=47" class="kyushu">沖<br>縄</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><a href="sub.html?ken=24" class="chubu">富<br>山</a></td>
+	<td colspan=2 class="colspan_2"><a href="sub.html?ken=21" class="chubu">新<br>潟</a></td>
+	<td colspan=2 class="colspan_2"><a href="sub.html?ken=07" class="touhoku">福<br>島</a></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><a href="sub.html?ken=22" class="chubu">福<br>井</a></td>
+	<td rowspan=2 class="rowspan_2"><a href="sub.html?ken=17" class="chubu">岐<br>阜</a></td>
+	<td rowspan=2 class="rowspan_2"><a href="sub.html?ken=19" class="chubu">長<br>野</a></td>
+	<td><a href="sub.html?ken=14" class="kantou">群<br>馬</a></td>
+	<td><a href="sub.html?ken=13" class="kantou">栃<br>木</a></td>
+	<td><a href="sub.html?ken=12" class="kantou">茨<br>城</a></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><a href="sub.html?ken=35" class="chugoku">島<br>根</a></td>
+	<td><a href="sub.html?ken=34" class="chugoku">鳥<br>取</a></td>
+	<td rowspan=2 class="rowspan_2"><a href="sub.html?ken=27" class="kinki">兵<br>庫</a></td>
+	<td><a href="sub.html?ken=26" class="kinki">京<br>都</a></td>
+	<td><a href="sub.html?ken=28" class="kinki">滋<br>賀</a></td>
+	<td><a href="sub.html?ken=15" class="chubu">山<br>梨</a></td>
+	<td><a href="sub.html?ken=10" class="kantou">埼<br>玉</a></td>
+	<td rowspan=2 class="rowspan_2"><a href="sub.html?ken=11" class="kantou">千<br>葉</a></td>
+</tr>
+<tr>
+	<td><a href="sub.html?ken=41" class="kyushu">佐<br>賀</a></td>
+	<td><a href="sub.html?ken=40" class="kyushu">福<br>岡</a></td>
+	<td><a href="sub.html?ken=33" class="chugoku">山<br>口</a></td>
+	<td><a href="sub.html?ken=31" class="chugoku">広<br>島</a></td>
+	<td><a href="sub.html?ken=32" class="chugoku">岡<br>山</a></td>
+	<td><a href="sub.html?ken=25" class="kinki">大<br>阪</a></td>
+	<td><a href="sub.html?ken=29" class="kinki">奈<br>良</a></td>
+	<td><a href="sub.html?ken=16" class="chubu">愛<br>知</a></td>
+	<td><a href="sub.html?ken=18" class="chubu">静<br>岡</a></td>
+	<td class="char3"><a href="sub.html?ken=09" class="kantou">神<br>奈<br>川</a></td>
+	<td><a href="sub.html?ken=08" class="kantou">東<br>京</a></td>
+</tr>
+<tr>
+	<td><a href="sub.html?ken=42" class="kyushu">長<br>崎</a></td>
+	<td><a href="sub.html?ken=44" class="kyushu">大<br>分</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td class="char3"><a href="sub.html?ken=30" class="kinki">和<br>歌<br>山</a></td>
+	<td><a href="sub.html?ken=20" class="chubu">三<br>重</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td><a href="sub.html?ken=43" class="kyushu">熊<br>本</a></td>
+	<td><a href="sub.html?ken=45" class="kyushu">宮<br>崎</a></td>
+	<td></td>
+	<td><a href="sub.html?ken=38" class="shikoku">愛<br>媛</a></td>
+	<td><a href="sub.html?ken=37" class="shikoku">香<br>川</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td colspan=2 class="colspan_2 char3"><a href="sub.html?ken=46" class="kyushu">鹿<br>児<br>島</a></td>
+	<td></td>
+	<td><a href="sub.html?ken=39" class="shikoku">高<br>知</a></td>
+	<td><a href="sub.html?ken=36" class="shikoku">徳<br>島</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+</body>
+</html>
