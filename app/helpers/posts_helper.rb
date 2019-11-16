@@ -5,15 +5,16 @@ module PostsHelper
   require 'json'
   require 'date'
 
-def tenki(ken)
-  if ken = "01"
+def tenki(todouhuken)
+  if todouhuken == "01"
     hokkaido = "http://weather.livedoor.com/forecast/webservice/json/v1?city=016010"
     info(hokkaido)
-  elsif ken = "02"
-  tokyo = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010"
-  info(tokyo)
+  elsif todouhuken == "08"
+    tokyo = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010"
+    info(tokyo)
+  else
+    "未設定です"
   end
-
 end
 
 def info(place)
