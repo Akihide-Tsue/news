@@ -4,7 +4,11 @@ module PostsHelper
   require 'net/http'
   require 'json'
   require 'date'
+  require 'open-uri'
+  require 'kconv'
+  require 'rexml/document'
 
+#その1　
 def tenki(todouhuken)
   if todouhuken == "01"
     hokkaido = "http://weather.livedoor.com/forecast/webservice/json/v1?city=016010"
@@ -41,6 +45,41 @@ def info(place)
 
   " #{location}の天気：
   今日(#{today}日)  ：#{today_telop}、最高気温:#{today_max}、最低気温:#{today_min}\n  明日(#{tomorrow}日)  ：#{tomorrow_telop}、最高気温:#{tomorrow_max}、最低気温:#{tomorrow_min}"
+end
+
+#その2　　https://www.drk7.jp/weather/
+def kousui(todouhuken)
+
+
+
+if todouhuken == "01"
+    hokkaido = "http://www.drk7.jp/weather/xml/01.xml"
+    xpath = 'weatherforecast/pref/area[11]/' #石狩
+    show_kousui(hokkaido,xpath)
+elsif todouhuken == "08"
+  tokyo = "http://www.drk7.jp/weather/xml/13.xml"
+  xpath = 'weatherforecast/pref/area[4]/' #東京
+  show_kousui(tokyo,xpath)
+elsif todouhuken == "25"
+  osaka = "http://www.drk7.jp/weather/xml/27.xml"
+  xpath = 'weatherforecast/pref/area[1]/' #大阪
+  show_kousui(osaka,xpath)
+  else
+    "降水確率：　未実装"
+end
+end
+
+def show_kousui(url,xpath)
+xml  = open( url ).read.toutf8
+doc = REXML::Document.new(xml)
+
+
+per06to12 = doc.elements[xpath + 'info[2]/rainfallchance/period[2]'].text
+per12to18 = doc.elements[xpath + 'info[2]/rainfallchance/period[3]'].text
+per18to24 = doc.elements[xpath + 'info[2]/rainfallchance/period[4]'].text
+
+"降水確率：　6〜12時：#{per06to12}％、\n12〜18時：#{per12to18}％、\n18〜24時：#{per18to24}％"
+
 end
 
 
