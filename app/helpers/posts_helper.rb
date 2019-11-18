@@ -40,7 +40,9 @@ def info(place)
   tomorrow_min = tomorrow_forecast.dig(*%w[temperature min celsius]) || "データなし"
 
   " #{location}の天気：
-  今日(#{today}日)  ：#{today_telop}、最高気温:#{today_max}、最低気温:#{today_min}明日(#{tomorrow}日)\n  ：#{tomorrow_telop}、最高気温:#{tomorrow_max}、最低気温:#{tomorrow_min}"
-
+  今日(#{today}日)  ：#{today_telop}、最高気温:#{today_max}、最低気温:#{today_min}\n  明日(#{tomorrow}日)  ：#{tomorrow_telop}、最高気温:#{tomorrow_max}、最低気温:#{tomorrow_min}"
 end
+
+
+
 end
