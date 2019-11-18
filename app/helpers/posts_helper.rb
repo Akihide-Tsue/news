@@ -12,8 +12,11 @@ def tenki(todouhuken)
   elsif todouhuken == "08"
     tokyo = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010"
     info(tokyo)
+  elsif todouhuken == "25"
+    osaka = "http://weather.livedoor.com/forecast/webservice/json/v1?city=270000"
+    info(osaka)
   else
-    "未設定です"
+    "テストアプリのため未実装です。現在は北海道、東京、大阪のみ確認が可能です"
   end
 end
 
