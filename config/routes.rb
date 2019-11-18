@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw
   root 'posts#index'
-  get 'posts', to: 'posts#index'
-  get '/sub.html', to: 'posts#show'
-
+  resources :posts, only: [:index, :show]
+    get '/sub.html', to: 'posts#show'
+    get 'about', to: 'posts#about'
+    post '/mail', to: 'posts#mail', as: :mail
 end

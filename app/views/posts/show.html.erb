@@ -6,8 +6,18 @@
 <h3>
 <% todouhuken = params[:ken] %>
 <%= tenki(todouhuken) %>
-
 </h3>
 
 </div>
 <a href="posts#index" class="btn-square-slant">戻る</a>
+
+<a href="/about" class="btn-square-slant">このアプリについて</a>
+
+<%= h(flash[:notice]) %>
+
+<h1>メール送信フォーム</h1>
+
+<%= form_with url: mail_path, local: true do |f| %>
+  <%= f.text_field :str %>
+  <%= f.submit "送信" %>
+<% end %>
